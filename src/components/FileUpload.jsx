@@ -25,17 +25,12 @@ const FileUpload = () => {
   };
 
   // Handle file upload (mock upload process)
-<<<<<<< HEAD
   
   const handleUpload = async () => {
-=======
-  const handleUpload = () => {
->>>>>>> 8b3e9e7f5b6e6bbdb2f7334e10f26849b79147b5
     if (files.length === 0) {
       alert('Please select files to upload');
       return;
     }
-<<<<<<< HEAD
   
     setIsUploading(true);
     setUploadProgress(0);
@@ -64,20 +59,6 @@ const FileUpload = () => {
     } finally {
       setIsUploading(false);
     }
-=======
-
-    setIsUploading(true);
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 10;
-      if (progress > 100) {
-        progress = 100;
-        clearInterval(interval);
-        setIsUploading(false);
-      }
-      setUploadProgress(progress);
-    }, 500);
->>>>>>> 8b3e9e7f5b6e6bbdb2f7334e10f26849b79147b5
   };
 
   return (
