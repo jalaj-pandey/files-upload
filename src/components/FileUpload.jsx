@@ -25,23 +25,40 @@ const FileUpload = () => {
   };
 
   // Handle file upload (mock upload process)
-  const handleUpload = () => {
+  
+  const handleUpload = async () => {
     if (files.length === 0) {
       alert('Please select files to upload');
       return;
     }
-
+  
     setIsUploading(true);
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 10;
-      if (progress > 100) {
-        progress = 100;
-        clearInterval(interval);
-        setIsUploading(false);
+    setUploadProgress(0);
+  
+    const formData = new FormData();
+    files.forEach((file) => {
+      formData.append('files', file);
+    });
+  
+    try {
+      const response = await fetch('http://127.0.0.1:8000/upload-files/', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to upload files');
       }
-      setUploadProgress(progress);
-    }, 500);
+  
+      const data = await response.json();
+      console.log('Upload response:', data);
+      alert('Files uploaded successfully!');
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('Failed to upload files.');
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
