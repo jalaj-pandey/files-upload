@@ -49,7 +49,7 @@ const FileUpload = () => {
       if (!response.ok) {
         throw new Error('Failed to upload files');
       }
-  
+      setUploadProgress(100);
       const data = await response.json();
       console.log('Upload response:', data);
       alert('Files uploaded successfully!');
