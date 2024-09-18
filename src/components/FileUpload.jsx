@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CloudArrowUpIcon } from '@heroicons/react/24/outline';
-const FileUpload = () => {
+
+const FileUpload = ({handalupdating}) => {
   const [files, setFiles] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
@@ -34,6 +35,7 @@ const FileUpload = () => {
         progress = 100;
         clearInterval(interval);
         setIsUploading(false);
+        handalupdating(true); 
       }
       setUploadProgress(progress);
     }, 500);
@@ -52,14 +54,14 @@ const FileUpload = () => {
       if (!response.ok) {
         throw new Error('Failed to upload files');
       }
-      setUploadProgress(100);
       const data = await response.json();
       console.log('Upload response:', data);
       alert('Files uploaded successfully!');
+      setIsUploading(false);
+      handalupdating(true);
     } catch (error) {
       console.error('Upload error:', error);
       alert('Failed to upload files.');
-      setUploadProgress(0);
     } finally {
       setIsUploading(false);
     }
