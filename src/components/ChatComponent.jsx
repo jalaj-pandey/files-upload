@@ -15,9 +15,9 @@ const ChatComponent = ({ uploading }) => {
       const response = await fetch("http://127.0.0.1:8000/get-response/", {
         method: "POST",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: new URLSearchParams({ query: input }),
+        body: JSON.stringify({ query: input }),
       });
 
       if (!response.ok) {
