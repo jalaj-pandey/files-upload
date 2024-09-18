@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
-import { CloudArrowUpIcon } from '@heroicons/react/24/outline'; // Updated import for Heroicons v2
-
+import { CloudArrowUpIcon } from '@heroicons/react/24/outline';
 const FileUpload = () => {
   const [files, setFiles] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
 
-  // Handle file selection
   const handleFileChange = (event) => {
     setFiles(Array.from(event.target.files));
     setUploadProgress(0);
   };
 
-  // Handle drag and drop
   const handleDragOver = (event) => {
     event.preventDefault();
   };
@@ -23,7 +20,6 @@ const FileUpload = () => {
     setUploadProgress(0);
   };
 
-  // Handle file upload (mock upload process)
   const handleUpload = async () => {
     if (files.length === 0) {
       alert('Please select files to upload');
@@ -71,8 +67,7 @@ const FileUpload = () => {
 
   return (
     
-    <div className="max-w-2xl mt-0 p-8 bg-white rounded-xl shadow-lg border border-gray-200" style={{ height: '500px' }}>
-      {/* Drag and Drop Area */}
+    <div className="w-full max-w-2xl mt-0 p-8 bg-white rounded-xl shadow-lg border border-gray-200" style={{ height: '500px' }}>
       <div
         className="relative flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-6 cursor-pointer hover:border-blue-500 transition-all duration-300"
         onDragOver={handleDragOver}
@@ -90,7 +85,6 @@ const FileUpload = () => {
         </div>
       </div>
 
-      {/* File Preview Area */}
       {files.length > 0 && (
         <div className="mt-4">
           <h3 className="text-gray-700 font-medium mb-2">Selected Files</h3>
@@ -110,7 +104,6 @@ const FileUpload = () => {
         </div>
       )}
 
-      {/* Upload Button */}
       <button
         onClick={handleUpload}
         disabled={isUploading}
@@ -121,7 +114,6 @@ const FileUpload = () => {
         {isUploading ? 'Uploading...' : 'Upload Files'}
       </button>
 
-      {/* Progress Bar */}
       <div className="mt-4">
         <div className="relative h-2 w-full bg-gray-200 rounded-full overflow-hidden">
           <div
