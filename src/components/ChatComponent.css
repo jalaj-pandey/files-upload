@@ -1,9 +1,10 @@
+/* Parent chat container */
 .chat-container {
-  width: 45%;
-  max-width: 100%;
+  width: 45%; /* Fixed width to ensure consistent size */
+  max-width: 100%; /* Prevent overflow */
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 500px; /* Fixed height */
   margin-top: 40px;
   background: linear-gradient(to bottom, #ffffff, #f0f0f0);
   border-radius: 14px;
@@ -11,6 +12,7 @@
   overflow: hidden;
 }
 
+/* Chat box area for scrolling */
 .chat-box {
   flex: 1;
   padding: 15px;
@@ -22,6 +24,7 @@
   display: none; /* Chrome, Safari */
 }
 
+/* Individual messages */
 .message {
   margin-bottom: 15px;
   padding: 10px 15px;
@@ -31,12 +34,14 @@
   word-wrap: break-word;
 }
 
+/* Bot messages */
 .message.bot {
   background-color: #e0e0e0;
   text-align: left;
   align-self: flex-start;
 }
 
+/* User messages */
 .message.user {
   background-color: #007bff;
   color: #fff;
@@ -44,6 +49,7 @@
   align-self: flex-end;
 }
 
+/* Input container at the bottom */
 .input-container {
   display: flex;
   padding: 10px;
@@ -51,6 +57,7 @@
   background-color: #fff;
 }
 
+/* Input field styling */
 input {
   flex: 1;
   padding: 10px;
@@ -65,6 +72,7 @@ input:focus {
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* Send button styling */
 button {
   padding: 10px 20px;
   margin-left: 10px;
@@ -85,6 +93,7 @@ button:hover:enabled {
   background-color: #0056b3;
 }
 
+/* Prompt styling for upload area */
 .upload-prompt {
   display: flex;
   align-items: center;
@@ -93,4 +102,13 @@ button:hover:enabled {
   text-align: center;
   color: #666;
   font-size: 18px;
+}
+
+/* Media query to adjust layout for small devices */
+@media (max-width: 768px) {
+  .chat-container {
+    width: 100%; /* Take full width on small devices */
+    margin-top: 20px; /* Adjust spacing */
+    height: 500px; /* Maintain fixed height */
+  }
 }

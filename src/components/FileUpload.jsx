@@ -71,7 +71,7 @@ const FileUpload = () => {
 
   return (
     
-    <div className="max-w-2xl mt-10 p-8 w-2/3  bg-white rounded-xl shadow-lg border border-gray-200" style={{ height: '500px' }}>
+    <div className="max-w-2xl mt-0 p-8 bg-white rounded-xl shadow-lg border border-gray-200" style={{ height: '500px' }}>
       {/* Drag and Drop Area */}
       <div
         className="relative flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-6 cursor-pointer hover:border-blue-500 transition-all duration-300"
