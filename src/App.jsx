@@ -6,7 +6,7 @@ import FileUpload from "./components/FileUpload";
 function App() {
   const [uploadedFile, setUpload] = useState(false);
   return (
-    <div className="mx-10 p-2 min-h-screen bg-gray-700 flex flex-col lg:flex-row items-center justify-around space-y-4 lg:space-y-0 lg:space-x-4">
+    <div className="mx-10 p-2 min-h-screen bg-indigo-200 flex flex-col lg:flex-row items-center justify-around space-y-4 lg:space-y-0 lg:space-x-4">
       <FileUpload handalupdating={setUpload} />
       {uploadedFile ? (
         <ChatComponent uploading={uploadedFile} />

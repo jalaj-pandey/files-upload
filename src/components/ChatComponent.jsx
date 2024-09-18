@@ -57,12 +57,12 @@ const ChatComponent = ({ uploading }) => {
                 key={index}
                 className={`message ${
                   msg.sender === "bot" ? "self-start" : "self-end"
-                } bg-blue-100 p-3 rounded-md max-w-full sm:max-w-xs`}>
+                } bg-slate-200 p-3 rounded-md max-w-full sm:max-w-xs`}>
                 <span className="break-words">{msg.text}</span>
               </div>
             ))}
           </div>
-          <div className="mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
+          <div className="mt-4 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
             <input
               type="text"
               placeholder="Type your message..."
@@ -71,12 +71,12 @@ const ChatComponent = ({ uploading }) => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSendMessage();
               }}
-              className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 sm:text-base text-sm"
+              className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 sm:text-base text-sm"
             />
             <button
               onClick={handleSendMessage}
               disabled={!input.trim()}
-              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none sm:text-base text-sm"
+              className="px-4 py-2 bg-slate-800 text-white rounded-md hover:bg-slate-600 focus:outline-none sm:text-base text-sm"
             >
               Send
             </button>
