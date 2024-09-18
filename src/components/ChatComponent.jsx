@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ChatComponent.css'; 
 
-const ChatComponent = () => {
+const ChatComponent = ({uploading}) => {
   const [messages, setMessages] = useState([
     { sender: 'bot', text: 'Hello! How can I help you today?' },
   ]);
@@ -45,6 +45,7 @@ const ChatComponent = () => {
 
   return (
     <div className="chat-container items-centre rounded-xl shadow-lg border border-gray-200">
+      {uploading &&<> 
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
@@ -63,7 +64,9 @@ const ChatComponent = () => {
           placeholder="Type a message..."
         />
         <button onClick={handleSendMessage}>Send</button>
-      </div>
+      </div></> }
+    {!uploading && <div className=' flex flex-row items-center justify-center'>
+        <p className='mt-20'>Please Upload a file First.</p></div>}
     </div>
   );
 };

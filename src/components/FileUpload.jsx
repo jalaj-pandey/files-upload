@@ -33,29 +33,40 @@ const FileUpload = () => {
     }
   
     setIsUploading(true);
-    setUploadProgress(0);
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 10;
+      if (progress > 100) {
+        progress = 100;
+        clearInterval(interval);
+        handalupdating(true)
+        setIsUploading(false);
+      }
+      setUploadProgress(progress);
+    }, 500);
   
     const formData = new FormData();
     files.forEach((file) => {
       formData.append('files', file);
     });
-  
+    
     try {
       const response = await fetch('http://127.0.0.1:8000/upload-files/', {
         method: 'POST',
         body: formData,
       });
-  
+      
+
       if (!response.ok) {
         throw new Error('Failed to upload files');
       }
-      setUploadProgress(100);
       const data = await response.json();
       console.log('Upload response:', data);
       alert('Files uploaded successfully!');
     } catch (error) {
       console.error('Upload error:', error);
       alert('Failed to upload files.');
+      setUploadProgress(0)
     } finally {
       setIsUploading(false);
     }
