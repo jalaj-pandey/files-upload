@@ -1,10 +1,11 @@
 #root {
   box-sizing: border-box;
+  background-color: rgb(0, 0, 0);
   /* background-color: rgb(55 65 81) */
-  background-color: rgb(199, 210, 254)
+  /* background-color: rgb(199, 210, 254) */
 }
 
 
 button{
-  color: rgb(75, 85, 99);
+  color: rgb(212, 44, 58);
 }

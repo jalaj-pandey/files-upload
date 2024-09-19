@@ -23,7 +23,7 @@ const FileUpload = ({ handalupdating }) => {
 
   const handleUpload = async () => {
     if (files.length === 0) {
-      alert('Please select files to upload');
+      toast.error('Please select files to upload');
       return;
     }
 
@@ -97,8 +97,8 @@ const FileUpload = ({ handalupdating }) => {
       <button
         onClick={handleUpload}
         disabled={isUploading}
-        className={`w-full mt-6 py-3 bg-slate-800 rounded-md text-white transition-all duration-300 ${
-          isUploading ? 'bg-gray-400 cursor-not-allowed' : 'bg-slate-500 hover:bg-slate-600'
+        className={`w-full mt-6 py-3 bg-rose-600 rounded-md text-white transition-all duration-300 ${
+          isUploading ? 'bg-rose-400 cursor-not-allowed' : 'bg-rose-600 hover:bg-rose-700'
         } focus:outline-none focus:ring-2 focus:ring-slate-300 flex items-center justify-center`}
       >
         {isUploading ? (

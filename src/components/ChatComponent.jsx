@@ -30,7 +30,7 @@ const ChatComponent = ({ uploading }) => {
         ...prevMessages,
         {
           sender: "bot",
-          text: data.response || "Sorry, something went wrong.",
+          text: data || "Sorry, something went wrong.", //updated from data.response
         },
       ]);
     } catch (error) {
@@ -56,7 +56,7 @@ const ChatComponent = ({ uploading }) => {
               <div
                 key={index}
                 className={`message ${
-                  msg.sender === "bot" ? "self-start" : "self-end"
+                  msg.sender === "bot" ? "bg-rose-300 text-gray-900 self-start" : "bg-slate-300 text-gray-900 self-end"
                 } bg-slate-200 p-3 rounded-md max-w-full sm:max-w-xs`}>
                 <span className="break-words">{msg.text}</span>
               </div>
@@ -71,12 +71,12 @@ const ChatComponent = ({ uploading }) => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSendMessage();
               }}
-              className="flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-400 sm:text-base text-sm"
+              className="flex-1 p-2 border border-rose-300 rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400 sm:text-base text-sm"
             />
             <button
               onClick={handleSendMessage}
               disabled={!input.trim()}
-              className="px-4 py-2 bg-slate-800 text-white rounded-md hover:bg-slate-600 focus:outline-none sm:text-base text-sm"
+              className="px-4 py-2 bg-rose-600 text-white rounded-md hover:bg-rose-700 focus:outline-none sm:text-base text-sm"
             >
               Send
             </button>
