@@ -5,18 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+  
+        '2xl': '1600px',
+      }
+    },
   },
   plugins: [],
 }
 
-// module.exports = {
-//   theme: {
-//     extend: {
-//       screens: {
-//         '2xl': '1536px',
-//         '4k': '2560px', // Add a custom 4K screen size
-//       },
-//     },
-//   },
-// };
